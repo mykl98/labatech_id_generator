@@ -71,7 +71,7 @@
     <!--Login Wrapper-->
 
     <div class="container-fluid h-100 opacity-50" style="background:rgba(0, 0, 0, 0.8);">
-        <h1 class="text-center mb-5 text-white"><br>LABATECH ID Generator</h1>    
+        <h1 class="text-center mb-5 text-white"><br><br>LabaTech ID Generator</h1>    
         <div class="row">
             <div class="col"></div>
             <div class="col-3 bg-skooltech" align="center">
