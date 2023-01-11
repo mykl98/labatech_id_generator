@@ -63,7 +63,7 @@
     <link rel="stylesheet" href="system/plugin/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="system/plugin/fontawesome/css/fontawesome.css">
 
-    <title>Labada | Login</title>
+    <title>LabaTech ID Generator | Login</title>
   </head>
 
   <body style="background-image: url('system/images/login-background.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;height: 100vh">
@@ -71,7 +71,7 @@
     <!--Login Wrapper-->
 
     <div class="container-fluid h-100 opacity-50" style="background:rgba(0, 0, 0, 0.8);">
-        <h1 class="text-center mb-5 text-white"><br>LABATECH<br>Laundry Shop Management System</h1>    
+        <h1 class="text-center mb-5 text-white"><br>LABATECH ID Generator</h1>    
         <div class="row">
             <div class="col"></div>
             <div class="col-3 bg-skooltech" align="center">
