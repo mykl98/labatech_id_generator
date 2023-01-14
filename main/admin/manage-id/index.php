@@ -133,7 +133,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h1 id="generated-id"></h1>
+                    <h1 class="text-center" id="generated-id"></h1>
                 </div>
             </div>
         </div>
