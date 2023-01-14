@@ -3,16 +3,16 @@ if($_SERVER['SERVER_ADDR'] == "127.0.0.1" || $_SERVER['SERVER_ADDR'] == "::1"){
     $servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "labada";
+	$dbname = "labatechidgenerator";
 	$conn = new mysqli($servername, $username, $password, $dbname);
-	$baseUrl = "http://localhost/labatech";
+	$baseUrl = "http://localhost/labatech-id-generator";
 }else if($_SERVER['SERVER_ADDR'] == "192.168.1.21"){
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "labada";
+	$dbname = "labatechidgenerator";
 	$conn = new mysqli($servername, $username, $password, $dbname);
-	$baseUrl = "http://192.168.1.21/labada";
+	$baseUrl = "http://192.168.1.21/labatech-id-generator";
 }
 
 date_default_timezone_set("Asia/Manila");

@@ -83,7 +83,6 @@ function renderAccountList(data){
     var markUp = '<table id="manage-account-table" class="table table-striped table-bordered table-sm">\
                         <thead>\
                             <tr>\
-                                <th>Access Card</th>\
                                 <th>Name</th>\
                                 <th>Username</th>\
                                 <th>Access</th>\
@@ -100,7 +99,6 @@ function renderAccountList(data){
             status = '<span class="badge badge-danger">Inactive</span>';
         }
         markUp += '<tr>\
-                        <td>'+list.card+'</td>\
                         <td>'+list.name+'</td>\
                         <td>'+list.username+'</td>\
                         <td>'+list.access+'</td>\
@@ -124,19 +122,13 @@ function addAccount(){
 }
 
 function saveAccount(){
-    if(startCapture){
-        return;
-    }
-    var card = $("#account-card").val();
     var name = $("#account-name").val();
     var username = $("#account-username").val();
     var access = $("#account-access").val();
     var status = $("#account-status").val();
-
     var error = "";
-    if(card == "" || card == undefined){
-        error = "*Please scan RFID card.";
-    }else if(name == "" || name == undefined){
+    
+    if(name == "" || name == undefined){
         error = "*Name field should not be empty.";
     }else if(username == "" || username == undefined){
         error = "*Username field should not be empty.";
@@ -149,7 +141,6 @@ function saveAccount(){
             dataType: 'html',
             data: {
                 idx:accountIdx,
-                card:card,
                 name:name,
                 username:username,
                 access:access,
@@ -197,7 +188,6 @@ function renderEditAccount(data){
     var lists = JSON.parse(data);
 
     lists.forEach(function(list){
-        $("#account-card").val(list.card);
         $("#account-name").val(list.name);
         $("#account-username").val(list.username);
         $("#account-access").val(list.access);
@@ -252,29 +242,3 @@ function logout(){
         }
     });
 }
-
-/************** RFID Reader ************/
-var startCapture = false;
-var cardId = "";
-$(function() {
-	$(window).keypress(function(e) {
-		var ev = e || window.event;
-		var key = ev.keyCode || ev.which;
-		if((key == 48) && startCapture == false){
-			cardId = "";
-			startCapture = true;
-			setTimeout(function(){
-				startCapture = false;
-			},200);
-		}
-		if(key == 13 && startCapture == true){
-            setTimeout(function(){
-                $("#account-card").val(cardId);
-                startCapture = false;
-			},200);
-		}
-        if(startCapture == true){
-			cardId += String.fromCharCode(key);
-		}
-	});
-});

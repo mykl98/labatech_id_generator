@@ -121,7 +121,7 @@
 
     <!-- Modals -->
     <div class="modal fade" id="add-edit-account-modal" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header bg-success p-2">
                     <h5 class="modal-title" id="add-edit-account-modal-title">Create New Account</h5>
@@ -134,10 +134,6 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="account-card" class="col-form-label">Access Card:</label>
-                                    <input type="text" class="form-control form-control-sm" id="account-card" placeholder="Scan RFID Card" readonly>
-                                </div>
-                                <div class="form-group">
                                     <label for="account-name" class="col-form-label">Name:</label>
                                     <input type="text" class="form-control form-control-sm" id="account-name">
                                 </div>
@@ -145,13 +141,11 @@
                                     <label for="account-username" class="col-form-label">Username:</label>
                                     <input type="text" class="form-control form-control-sm" id="account-username">
                                 </div>
-                            </div>
-                            <div class="col">
                                 <div class="form-group">
                                     <label for="account-access" class="col-form-label">Access:</label>
                                     <select class="form-control form-control-sm" id="account-access">
                                         <option value="admin">Admin</option>
-                                        <option value="station">Staff</option>
+                                        <option value="staff">Staff</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

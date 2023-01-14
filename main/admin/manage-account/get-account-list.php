@@ -13,7 +13,6 @@
                         if($row["idx"] != 0){
                             $value = new \StdClass();
                             $value -> idx = $row["idx"];
-                            $value -> card = $row["card"];
                             $value -> name = $row["name"];
                             $value -> username = $row["username"];
                             $value -> access = $row["access"];

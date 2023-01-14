@@ -31,64 +31,21 @@ if($_POST){
         }
     }
 
-    function checkCard($card){
-        global $conn;
-        $table = "account";
-        $sql = "SELECT idx FROM `$table` WHERE card='$card'";
-        if($result=mysqli_query($conn,$sql)){
-            if(mysqli_num_rows($result) > 0){
-                return "This RFID card is already been used. Please use another card.";
-            }else{
-                return "true";
-            }
-        }else{
-            return "System Error!";
-        }
-    }
-
-    function getOldCard($idx){
-        global $conn;
-        $card = "";
-        $table = "account";
-        $sql = "SELECT card FROM `$table` WHERE idx='$idx'";
-        if($result=mysqli_query($conn,$sql)){
-            if(mysqli_num_rows($result) > 0){
-                $row = mysqli_fetch_array($result);
-                $card = $row["card"];
-            }
-        }
-        return $card;
-    }
-
-    function saveAccount($idx,$card,$name,$username,$access,$status){
+    function saveAccount($idx,$name,$username,$access,$status){
         global $conn;
         $table = "account";
         if($idx == ""){
-            $check = checkCard($card);
-            if($check != "true"){
-                return $check;
-            }
             $check = checkUsername($username);
             if($check != "true"){
                 return $check;
             }
-            $sql = "INSERT INTO `$table` (card,name,username,password,access,status) VALUES ('$card','$name','$username','123456','$access','$status')";
+            $sql = "INSERT INTO `$table` (name,username,password,access,status) VALUES ('$name','$username','123456','$access','$status')";
             if(mysqli_query($conn,$sql)){
                 return "true*_*";
             }else{
                 return "System Failed!";
             }
         }else{
-            $old = getOldCard($idx);
-            if($old == ""){
-                return "System Error!";
-            }
-            if($old != $card){
-                $check = checkCard($card);
-                if($check != "true"){
-                    return $check;
-                }
-            }
             $old = getOldUsername($idx);
             if($old == ""){
                 return "System Error!";
@@ -99,7 +56,7 @@ if($_POST){
                     return $check;
                 }
             }
-            $sql = "UPDATE `$table` SET card='$card', name='$name',username='$username',access='$access',status='$status' WHERE idx='$idx'";
+            $sql = "UPDATE `$table` SET name='$name',username='$username',access='$access',status='$status' WHERE idx='$idx'";
             if(mysqli_query($conn,$sql)){
                 return "true*_*";
             }else{
@@ -111,13 +68,12 @@ if($_POST){
     session_start();
     if($_SESSION["isLoggedIn"] == "true"){
         $idx = sanitize($_POST["idx"]);
-        $card = sanitize($_POST["card"]);
         $name = sanitize($_POST["name"]);
         $username = sanitize($_POST["username"]);
         $access = sanitize($_POST["access"]);
         $status = sanitize($_POST["status"]);
-        if(!empty($card)&&!empty($name)&&!empty($username)&&!empty($access)&&!empty($status)){
-            echo saveAccount($idx,$card,$name,$username,$access,$status);
+        if(!empty($name)&&!empty($username)&&!empty($access)&&!empty($status)){
+            echo saveAccount($idx,$name,$username,$access,$status);
         }else{
             echo "Required fields are empty!";
         }
