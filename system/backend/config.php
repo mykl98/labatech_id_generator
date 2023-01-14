@@ -6,13 +6,13 @@ if($_SERVER['SERVER_ADDR'] == "127.0.0.1" || $_SERVER['SERVER_ADDR'] == "::1"){
 	$dbname = "labatechidgenerator";
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	$baseUrl = "http://localhost/labatech-id-generator";
-}else if($_SERVER['SERVER_ADDR'] == "192.168.1.21"){
+}else{
 	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "labatechidgenerator";
+	$username = "u528264240_labatechid";
+	$password = "Skooltech_113012";
+	$dbname = "u528264240_labatechid";
 	$conn = new mysqli($servername, $username, $password, $dbname);
-	$baseUrl = "http://192.168.1.21/labatech-id-generator";
+	$baseUrl = "https://labatechidgenerator.raptorapps.xyz";
 }
 
 date_default_timezone_set("Asia/Manila");
